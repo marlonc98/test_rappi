@@ -18,22 +18,26 @@ class _MoviesCarouselWidgetState extends State<MoviesSmallCarousel> {
 
   @override
   void initState() {
-    loadMovies();
+    if (movies.isEmpty) {
+      loadMovies();
+    }
     super.initState();
   }
 
   void loadMovies() async {
     final result = await widget.search();
-    setState(() {
-      loading = false;
-      movies = result;
-    });
+    if (mounted) {
+      setState(() {
+        loading = false;
+        movies = result;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     if (!loading && movies.isEmpty) {
-      return const SliverToBoxAdapter(child: SizedBox());
+      return const SizedBox();
     }
     return Column(
       children: [

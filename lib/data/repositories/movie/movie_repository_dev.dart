@@ -9,7 +9,7 @@ import 'package:test_rappi/domain/entities/movie/movie_entity.dart';
 import 'package:test_rappi/domain/entities/search_result_entity.dart';
 import 'package:test_rappi/domain/repositories/movie_repository.dart';
 
-class MovieRepositoryImpl extends MovieRepository {
+class MovieRepositoryDev extends MovieRepository {
   @override
   Future<Either<ExceptionEntity, MovieEntity>> getMovieById(int id) =>
       getMovieByIdApiIpml(id);

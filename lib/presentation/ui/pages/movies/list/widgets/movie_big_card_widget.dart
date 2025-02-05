@@ -18,7 +18,7 @@ class MovieBigCardWidget extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(16),
             child: ImageNetworkWithLoadWidget(
-              'https://image.tmdb.org/t/p/w500/8Y43POKjjKDGI9MH89NW0NAzzp8.jpg',
+              movie.posterPath,
               fit: BoxFit.cover,
               height: MediaQuery.of(context).size.height * 0.3,
               width: double.infinity,
@@ -37,11 +37,12 @@ class MovieBigCardWidget extends StatelessWidget {
                     rating: movie.voteAverage,
                   ),
                 ),
-                const Text(
-                  "Guy movie",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                Text(
+                  movie.title,
+                  style: const TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.bold),
                 ),
-                const Text("7 nov 2024"),
+                Text(movie.releaseDate),
               ],
             ),
           ),

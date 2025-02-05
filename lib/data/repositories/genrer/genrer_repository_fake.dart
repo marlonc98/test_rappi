@@ -13,31 +13,6 @@ GenrerEntity gnererFantasy = const GenrerEntity(id: 9, name: 'Fantasy');
 
 class GenrerRepositoryFake extends GenrerRepository {
   static const String spKey = 'genrers';
-  @override
-  Future<GenrerEntity?> getGenrerById(int id) async {
-    switch (id) {
-      case 1:
-        return gnererAction;
-      case 2:
-        return gnererAdventure;
-      case 3:
-        return gnererAnimation;
-      case 4:
-        return gnererComedy;
-      case 5:
-        return gnererCrime;
-      case 6:
-        return gnererDocumentary;
-      case 7:
-        return gnererDrama;
-      case 8:
-        return gnererFamily;
-      case 9:
-        return gnererFantasy;
-      default:
-        return null;
-    }
-  }
 
   @override
   Future<List<GenrerEntity>> getGenrers() async {
@@ -53,11 +28,5 @@ class GenrerRepositoryFake extends GenrerRepository {
       gnererFamily,
       gnererFantasy,
     ]);
-  }
-
-  @override
-  Future<void> saveGenrersLocal(List<GenrerEntity> genrers) async {
-    await Future.delayed(const Duration(seconds: 1));
-    return Future.value();
   }
 }

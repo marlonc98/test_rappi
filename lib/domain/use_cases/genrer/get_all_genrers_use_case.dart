@@ -19,7 +19,6 @@ class GetAllGenrersUseCase {
     List<GenrerEntity> genrers = await _genrerRepository.getGenrers();
     _genrersState.genrers = genrers;
     _genrersState.notifyAll();
-    await _genrerRepository.saveGenrersLocal(genrers);
     return genrers;
   }
 }

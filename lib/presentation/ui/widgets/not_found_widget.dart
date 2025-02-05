@@ -24,7 +24,7 @@ class NotFoundWidget extends StatelessWidget {
                 child: Text(localization
                     .translate(KeyWordsConstants.notFoundWidgetGoBack))),
             SizedBox(height: MediaQuery.of(context).size.height * 0.4 - 300),
-            Lottie.asset(ImagesConstants.splashNotFound, height: 200),
+            Lottie.asset(ImagesConstants.splashLoading, height: 200),
           ],
         ),
       ),

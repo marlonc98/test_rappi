@@ -34,6 +34,19 @@
                 "prod"
             ],
         },
+
+        {
+            "name": "Rappi Movie (prod - release mode)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/flavors/main_prod.dart",
+            "args": [
+                "--flavor",
+                "prod"
+            ],
+            "flutterMode": "release"
+            
+        },
         {
             "name": "test_rappi (release mode)",
             "request": "launch",

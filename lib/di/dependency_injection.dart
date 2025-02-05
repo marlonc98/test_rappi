@@ -1,9 +1,15 @@
 import 'package:get_it/get_it.dart';
+import 'package:test_rappi/data/repositories/genrer/genrer_repository_dev.dart';
 import 'package:test_rappi/data/repositories/genrer/genrer_repository_fake.dart';
+import 'package:test_rappi/data/repositories/genrer/genrer_repository_impl.dart';
 import 'package:test_rappi/data/repositories/localization/localization_repository_dev.dart';
 import 'package:test_rappi/data/repositories/localization/localization_repository_fake.dart';
 import 'package:test_rappi/data/repositories/localization/localization_repository_impl.dart';
+import 'package:test_rappi/data/repositories/movie/movie_repository_dev.dart';
 import 'package:test_rappi/data/repositories/movie/movie_repository_fake.dart';
+import 'package:test_rappi/data/repositories/movie/movie_repository_impl.dart';
+import 'package:test_rappi/data/settings/host_api.dart';
+import 'package:test_rappi/data/settings/rest_api.dart';
 import 'package:test_rappi/domain/repositories/genrer_repository.dart';
 import 'package:test_rappi/domain/repositories/movie_repository.dart';
 import 'package:test_rappi/domain/states/genders_state.dart';
@@ -35,11 +41,17 @@ class DependencyInjection {
     } else if (mode == Flavor.dev) {
       getIt.registerSingleton<LocalizationRepository>(
           LocalizationRepositoryDev());
+      getIt.registerSingleton<GenrerRepository>(GenrerRepositoryDev());
+      getIt.registerSingleton<MovieRepository>(MovieRepositoryDev());
     } else {
       getIt.registerSingleton<LocalizationRepository>(
           LocalizationRepositoryImpl());
+      getIt.registerSingleton<GenrerRepository>(GenrerRepositoryImpl());
+      getIt.registerSingleton<MovieRepository>(MovieRepositoryImpl());
     }
     //#endregion repositories
+
+    getIt.registerSingleton<RestApi>(HostApi());
 
     //#region ------------- providers -------------------------//
     getIt.registerSingleton<LocalizationState>(LocalizationStateImpl());

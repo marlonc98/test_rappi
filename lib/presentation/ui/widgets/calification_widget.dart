@@ -44,9 +44,9 @@ class CalificationWidget extends StatelessWidget {
           Center(
             child: Text(
               rating.toString(),
-              style: const TextStyle(
+              style: TextStyle(
                   color: Colors.white,
-                  fontSize: 24,
+                  fontSize: 24 * (size / 60),
                   fontWeight: FontWeight.bold),
             ),
           )

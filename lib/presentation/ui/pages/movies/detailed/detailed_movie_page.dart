@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test_rappi/presentation/ui/pages/movies/detailed/detailed_movie_page_view_model.dart';
 import 'package:test_rappi/presentation/ui/widgets/calification_widget.dart';
+import 'package:test_rappi/presentation/ui/widgets/not_found_widget.dart';
 
 class DetailedMoviePage extends StatefulWidget {
   static const String route = '/movies/detailed';
@@ -25,6 +26,9 @@ class _DetailedMoviePageState extends State<DetailedMoviePage> {
             return const Center(
               child: CircularProgressIndicator(),
             );
+          }
+          if (viewModel.movie == null) {
+            return const NotFoundWidget();
           }
           return Scaffold(
               body: CustomScrollView(

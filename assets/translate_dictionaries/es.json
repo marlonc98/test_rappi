@@ -1,3 +1,7 @@
 {
-    
+    "splashPageTitle": "Rappi Movies",
+    "splashPageVersion": "Versión 1.0",
+
+    "notFoundWidgetNotResults": "No se han encontrado resultados",
+    "notFoundWidgetGoBack": "Go Back"
 }
