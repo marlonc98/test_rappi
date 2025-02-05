@@ -1,4 +1,4 @@
-# Prueba Técnica - Ingreso a Pragma
+# Prueba Técnica - Ingreso a Rappi
 
 Este proyecto es una prueba técnica para el proceso de ingreso a la empresa **Rappi**. A continuación, se describen las características y la arquitectura de la aplicación.
 
