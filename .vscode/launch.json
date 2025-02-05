@@ -5,13 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Rappi Movie (faked)",
+            "name": "Rappi Movie (fake)",
             "request": "launch",
             "type": "dart",
             "program": "lib/flavors/main_fake.dart",
             "args": [
                 "--flavor",
-                "faked"
+                "fake"
             ],
         },
         {
