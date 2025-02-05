@@ -5,6 +5,7 @@ import 'package:test_rappi/presentation/ui/pages/movies/list/movies_list_page_vi
 import 'package:test_rappi/presentation/ui/pages/movies/list/widgets/movies_carousel_widget.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:test_rappi/presentation/ui/pages/movies/list/widgets/movies_small_carousel.dart';
+import 'package:test_rappi/presentation/ui/widgets/error_paginator_widget.dart';
 import 'package:test_rappi/presentation/ui/widgets/searcher_app_bar.dart';
 
 class MoviesListPage extends StatefulWidget {
@@ -42,6 +43,10 @@ class _MoviesListPageState extends State<MoviesListPage> {
               PagedSliverList<int, GenrerEntity>(
                 pagingController: viewModel.pagingController,
                 builderDelegate: PagedChildBuilderDelegate<GenrerEntity>(
+                  firstPageErrorIndicatorBuilder: (context) =>
+                      ErrorPaginatorWidget(
+                          onRetry: viewModel.retry,
+                          pagingController: viewModel.pagingController),
                   itemBuilder: (context, item, index) => Container(
                       margin:
                           const EdgeInsets.only(bottom: 8, left: 16, right: 16),

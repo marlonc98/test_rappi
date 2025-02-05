@@ -77,7 +77,7 @@ El proyecto utiliza las siguientes librerías externas para facilitar el desarro
 ## Descargar la Aplicación
 
 Si deseas probar la aplicación en Android, puedes descargar el archivo APK desde:  
-`/app-release.apk`
+`/app-prod-release.apk`
 
 ---
 

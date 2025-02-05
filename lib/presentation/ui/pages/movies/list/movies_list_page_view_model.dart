@@ -11,6 +11,7 @@ import 'package:test_rappi/domain/use_cases/movie/get_rated_movies_use_case.dart
 import 'package:test_rappi/presentation/ui/pages/movies/list/movies_list_page.dart';
 import 'package:test_rappi/presentation/ui/pages/movies/search/search_movies_page.dart';
 import 'package:test_rappi/presentation/ui/pages/view_model.dart';
+import 'package:test_rappi/utils/key_words_constants.dart';
 import 'package:test_rappi/utils/show_modal.dart';
 
 class MoviesListPageViewModel extends ViewModel<MoviesListPage> {
@@ -19,6 +20,12 @@ class MoviesListPageViewModel extends ViewModel<MoviesListPage> {
       required super.widget,
       required super.isMounted}) {
     _initPaginController();
+  }
+
+  void retry() {
+    getPopularMovies();
+    getRatedMovies();
+    notifyListeners();
   }
 
   PagingController<int, GenrerEntity> pagingController =
@@ -37,6 +44,10 @@ class MoviesListPageViewModel extends ViewModel<MoviesListPage> {
     Either<ExceptionEntity, List<MovieEntity>> result =
         await getIt.get<GetPopularMoviesUseCase>().call();
     if (result.isLeft) {
+      if (result.left.code == KeyWordsConstants.noInternetConnection) {
+        pagingController.error = localization.translate(result.left.code);
+        notifyListeners();
+      }
       if (mounted) {
         ShowModal.showSnackBar(
             // ignore: use_build_context_synchronously
