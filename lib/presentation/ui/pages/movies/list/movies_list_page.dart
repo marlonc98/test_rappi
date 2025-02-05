@@ -5,6 +5,7 @@ import 'package:test_rappi/presentation/ui/pages/movies/list/movies_list_page_vi
 import 'package:test_rappi/presentation/ui/pages/movies/list/widgets/movies_carousel_widget.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:test_rappi/presentation/ui/pages/movies/list/widgets/movies_small_carousel.dart';
+import 'package:test_rappi/presentation/ui/widgets/searcher_app_bar.dart';
 
 class MoviesListPage extends StatefulWidget {
   static const String route = '/movies';
@@ -25,10 +26,10 @@ class _MoviesListPageState extends State<MoviesListPage> {
           return Scaffold(
               body: CustomScrollView(
             slivers: [
-              const SliverAppBar(
-                pinned: true,
-                floating: true,
-                title: Text('Movies'),
+              SearcherAppBar(
+                title: 'Movies',
+                onSearch: viewModel.handleSearch,
+                waitSearch: true,
               ),
               MoviesCarouselWidget(
                 search: viewModel.getPopularMovies,

@@ -9,7 +9,7 @@ abstract class MovieRepository {
     required String query,
     required int itemsPerPage,
   });
-  Future<Either<ExceptionEntity, MovieEntity>> getMovieById(String id);
+  Future<Either<ExceptionEntity, MovieEntity>> getMovieById(int id);
   Future<Either<ExceptionEntity, List<MovieEntity>>> getPopularMovies();
   Future<Either<ExceptionEntity, List<MovieEntity>>> getTopRatedMovies();
   Future<Either<ExceptionEntity, List<MovieEntity>>> getMoviesForGender({

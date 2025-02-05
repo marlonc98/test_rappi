@@ -13,7 +13,9 @@ _$MovieEntityImpl _$$MovieEntityImplFromJson(Map<String, dynamic> json) =>
       overview: json['overview'] as String,
       releaseDate: json['releaseDate'] as String,
       posterPath: json['posterPath'] as String,
+      originalLanguage: json['originalLanguage'] as String,
       voteAverage: (json['voteAverage'] as num).toInt(),
+      originalTitle: json['originalTitle'] as String,
       genrers: (json['genrers'] as List<dynamic>)
           .map((e) => GenrerEntity.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -26,6 +28,8 @@ Map<String, dynamic> _$$MovieEntityImplToJson(_$MovieEntityImpl instance) =>
       'overview': instance.overview,
       'releaseDate': instance.releaseDate,
       'posterPath': instance.posterPath,
+      'originalLanguage': instance.originalLanguage,
       'voteAverage': instance.voteAverage,
+      'originalTitle': instance.originalTitle,
       'genrers': instance.genrers,
     };

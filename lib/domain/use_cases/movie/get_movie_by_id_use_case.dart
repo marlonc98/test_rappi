@@ -8,6 +8,6 @@ class GetMovieByIdUseCase {
   GetMovieByIdUseCase({required MovieRepository movieRepository})
       : _movieRepository = movieRepository;
 
-  Future<Either<ExceptionEntity, MovieEntity>> call(String id) =>
+  Future<Either<ExceptionEntity, MovieEntity>> call(int id) =>
       _movieRepository.getMovieById(id);
 }

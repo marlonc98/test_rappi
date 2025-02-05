@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_rappi/domain/entities/movie/movie_entity.dart';
 import 'package:test_rappi/presentation/ui/pages/movies/list/widgets/movie_big_card_widget.dart';
-import 'package:test_rappi/presentation/ui/pages/movies/list/widgets/movie_small_card_widget.dart';
 
 class MoviesCarouselWidget extends StatefulWidget {
   final String title;

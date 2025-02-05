@@ -13,6 +13,8 @@ MovieEntity movieMock = const MovieEntity(
   releaseDate: 'releaseDate',
   posterPath: 'https://image.tmdb.org/t/p/w500/8Y43POKjjKDGI9MH89NW0NAzzp8.jpg',
   voteAverage: 74,
+  originalLanguage: 'en',
+  originalTitle: 'Guy',
   genrers: [
     GenrerEntity(id: 1, name: 'Action'),
     GenrerEntity(id: 2, name: 'Adventure'),
@@ -21,10 +23,12 @@ MovieEntity movieMock = const MovieEntity(
 
 MovieEntity movieMock2 = const MovieEntity(
   id: 2,
-  title: 'Sonic',
+  title: 'Sonic el erizo',
   overview:
       '‘Ley y Orden: Unidad de Víctimas Especiales’ es una serie de televisión estadounidense grabada en Nueva York donde es también principalmente producida. Con el estilo de la original ‘Ley y Orden’ los episodios son usualmente "sacados de los titulares" o basados libremente en verdaderos asesinatos que han recibido la atención de los medios.',
   releaseDate: 'releaseDate2',
+  originalLanguage: 'en',
+  originalTitle: 'Sonic',
   posterPath:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5UG2mFZ_N5omNq4sxQXPjCQ3nXXP5bikjCA&s',
   voteAverage: 98,
@@ -36,7 +40,7 @@ MovieEntity movieMock2 = const MovieEntity(
 
 class MovieRepositoryFake extends MovieRepository {
   @override
-  Future<Either<ExceptionEntity, MovieEntity>> getMovieById(String id) async {
+  Future<Either<ExceptionEntity, MovieEntity>> getMovieById(int id) async {
     await Future.delayed(const Duration(seconds: 1));
     return Right(movieMock);
   }

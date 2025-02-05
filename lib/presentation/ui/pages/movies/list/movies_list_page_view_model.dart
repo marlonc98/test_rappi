@@ -1,14 +1,15 @@
 import 'package:either_dart/either.dart';
+import 'package:flutter/widgets.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:test_rappi/domain/entities/exception_entity.dart';
 import 'package:test_rappi/domain/entities/genrer/genrer_entity.dart';
 import 'package:test_rappi/domain/entities/movie/movie_entity.dart';
 import 'package:test_rappi/domain/use_cases/genrer/get_all_genrers_use_case.dart';
-import 'package:test_rappi/domain/use_cases/movie/get_movie_by_id_use_case.dart';
 import 'package:test_rappi/domain/use_cases/movie/get_popular_movies_use_case.dart';
 import 'package:test_rappi/domain/use_cases/movie/get_preview_of_movies_by_genRer_use_case.dart';
 import 'package:test_rappi/domain/use_cases/movie/get_rated_movies_use_case.dart';
 import 'package:test_rappi/presentation/ui/pages/movies/list/movies_list_page.dart';
+import 'package:test_rappi/presentation/ui/pages/movies/search/search_movies_page.dart';
 import 'package:test_rappi/presentation/ui/pages/view_model.dart';
 import 'package:test_rappi/utils/show_modal.dart';
 
@@ -95,6 +96,17 @@ class MoviesListPageViewModel extends ViewModel<MoviesListPage> {
       return [];
     } else {
       return result.right;
+    }
+  }
+
+  Future<void> handleSearch(String word) async {
+    await Future.delayed(const Duration(milliseconds: 500));
+    if (mounted) {
+      // ignore: use_build_context_synchronously
+      Navigator.of(context).pushNamed(SearchMoviesPage.route,
+          arguments: SearchMoviesPage(
+            query: word,
+          ));
     }
   }
 }

@@ -11,7 +11,9 @@ class MovieEntity with _$MovieEntity {
     required String overview,
     required String releaseDate,
     required String posterPath,
+    required String originalLanguage,
     required int voteAverage,
+    required String originalTitle,
     required List<GenrerEntity> genrers,
   }) = _MovieEntity;
 
