@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:test_rappi/domain/states/localization/localization_state.dart';
+import 'package:test_rappi/domain/states/localization_state.dart';
 import 'package:test_rappi/utils/images_constants.dart';
 import 'package:test_rappi/utils/key_words_constants.dart';
 import 'package:provider/provider.dart';

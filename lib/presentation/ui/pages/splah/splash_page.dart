@@ -1,9 +1,10 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:test_rappi/domain/states/Localization/localization_state.dart';
+import 'package:test_rappi/domain/states/localization_state.dart';
 import 'package:test_rappi/domain/use_cases/default/load_use_case.dart';
 import 'package:lottie/lottie.dart';
+import 'package:test_rappi/presentation/ui/pages/movies/list/movies_list_page.dart';
 import 'package:test_rappi/utils/images_constants.dart';
 import 'package:test_rappi/utils/key_words_constants.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,7 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final localizationState = Provider.of<LocalizationState>(context);
     return AnimatedSplashScreen(
-      backgroundColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       splash: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -39,7 +40,7 @@ class SplashPage extends StatelessWidget {
         ],
       ),
       function: GetIt.instance.get<LoadUseCase>().call,
-      nextScreen: const Placeholder(),
+      nextScreen: const MoviesListPage(),
     );
   }
 }
